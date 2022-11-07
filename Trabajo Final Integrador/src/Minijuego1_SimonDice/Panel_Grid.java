@@ -8,7 +8,7 @@ public class Panel_Grid extends JPanel {
 
     public Panel_Grid(int columnas, int filas,int hgap,int vgap){
         setLayout(new GridLayout(filas,columnas,hgap,vgap));
-        setAlignmentX(1);
+        setAlignmentX(2);
         setBorder(new EmptyBorder(10,10,10,10));
     }
 
