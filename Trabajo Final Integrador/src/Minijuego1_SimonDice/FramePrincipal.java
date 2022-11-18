@@ -12,7 +12,8 @@ import java.awt.event.MouseListener;
 public class FramePrincipal extends JFrame implements ChangeListener, MouseListener {
 
     //Paneles utilizados
-    private Panel_Grid layoutBotones = new Panel_Grid(1,2,30,30);
+    private Panel_Grid layoutInferior = new Panel_Grid(1,2,30,30);
+    private Panel_Grid layoutBoton = new Panel_Grid(1,2,30,30);
     private JPanel panelFlow = new JPanel();
     private PanelSimonDice panelSimonDice = new PanelSimonDice();
     private JPanel panelMenu = new JPanel();
@@ -20,12 +21,19 @@ public class FramePrincipal extends JFrame implements ChangeListener, MouseListe
 
     //Botones y labels
     private JButton botonJugar = new JButton("Jugar");
+    private JButton botonMenu = new JButton("Salir");
     public JButton botonAtras = new JButton("Atras");
     private JRadioButton radioButtonLento = new JRadioButton("Lento");
     private JRadioButton radioButtonMedio = new JRadioButton("Medio");
     private JRadioButton radioButtonRapido = new JRadioButton("Rapido");
     private ButtonGroup grupoBotones = new ButtonGroup();
     private JLabel labelSimonDice = new JLabel("Simon Dice!", JLabel.CENTER);
+
+    //------------------------Prueba-----------------------
+    public static void main(String[] args){
+        new FramePrincipal();
+    }
+    //------------------------Prueba-----------------------
 
     public FramePrincipal(){
         //Se definen los parametros iniciales de la ventana
@@ -62,13 +70,16 @@ public class FramePrincipal extends JFrame implements ChangeListener, MouseListe
         panelFlow.add(radioButtonLento);
         panelFlow.add(radioButtonMedio);
         panelFlow.add(radioButtonRapido);
-        layoutBotones.add(panelFlow);
-        panelMenu.add(layoutBotones, BorderLayout.SOUTH);
+        layoutInferior.add(panelFlow);
+        panelMenu.add(layoutInferior, BorderLayout.SOUTH);
 
         //setea el boton jugar, se le agrega el listener que hace visible el juego e invisible el menu y se lo agrega al subpanel inferior
-        layoutBotones.add(botonJugar);
+        layoutBoton.add(botonJugar);
+        layoutBoton.add(botonMenu);
+        layoutInferior.add(layoutBoton);
         botonJugar.setFont(new Font("Thaoma", Font.BOLD,15));
-        layoutBotones.setBorder(new EmptyBorder(20,80,20,80));
+        botonMenu.setFont(new Font("Thaoma", Font.BOLD,15));
+        layoutInferior.setBorder(new EmptyBorder(20,80,20,80));
         botonJugar.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -76,6 +87,13 @@ public class FramePrincipal extends JFrame implements ChangeListener, MouseListe
                 panelMenu.setVisible(false);
                 panelSimonDice.setVisible(true);
                 panelSimonDice.iniciarJuego();
+            }
+        });
+        botonMenu.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                System.exit(0);
             }
         });
 

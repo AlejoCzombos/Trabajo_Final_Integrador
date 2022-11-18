@@ -1,3 +1,5 @@
+package Minijuego3_Viborita;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -7,41 +9,52 @@ import javax.swing.JPanel;
 public class PanelJuego extends JPanel implements ActionListener {
 
     static final int ancho = 600;
-    static final int largo = 600;
+    static final int largo = 625;
     static final int tamaño = 25;
     static final int juegoGen = (ancho*largo)/(tamaño*tamaño);
-    static final int DELAY = 75;
+    static final int DELAY = 100;
     final int x[] = new int[juegoGen];
     final int y[] = new int[juegoGen];
     private int cuerpo = 6;
     private int comerManz;
     private int manzanaX;
     private int manzanaY;
-    private char direccion = 'R';
+    private char direccion = 'D';
     private boolean andar = false;
     private Timer timer;
     private Random random;
-    static final int Menu = (ancho*largo)/(tamaño*tamaño);
-
+    private JButton botonRecargar = new JButton("Volver a Jugar");
 
     PanelJuego(){
 
         random = new Random();
         this.setPreferredSize(new Dimension(ancho, largo));
+        this.setLayout(new BorderLayout());
         this.setBackground(Color.DARK_GRAY);
         this.setFocusable(true);
         this.addKeyListener(new MyKeyAdapter());
+        setearBoton();
+        add(botonRecargar, BorderLayout.SOUTH);
         empezarJuego();
 
     }
 
-
-
     public void empezarJuego(){
         nuevaManzana();
-        andar = true;
+        setearVariables();
         timer = new Timer(DELAY,this);
         timer.start();
+        repaint();
+    }
+
+    public void setearVariables(){
+        andar = true;
+        direccion = 'D';
+        cuerpo = 6;
+        for (int i = 0; i < cuerpo; i++){
+            x[i] = 0;
+            y[i] = 0;
+        }
     }
 
     public void paintComponent(Graphics g){
@@ -52,31 +65,27 @@ public class PanelJuego extends JPanel implements ActionListener {
     private void draw(Graphics g){
 
         if(andar) {
-            /*
-            for (int i = 0; i < SCREEN_HEIGHT / UNIT_SIZE; i++) {
-                g.drawLine(i * UNIT_SIZE, 0, i * UNIT_SIZE, SCREEN_HEIGHT);
-                g.drawLine(0, i * UNIT_SIZE, SCREEN_WIDTH, i * UNIT_SIZE);
-            }
-            */
+
             g.setColor(Color.red);
             g.fillOval(manzanaX, manzanaY, tamaño, tamaño);
 
             for (int i = 0; i < cuerpo; i++) {
                 if (i == 0) {
-                    g.setColor(Color.PINK);
+                    g.setColor(new Color(238, 0, 255,250));
                     g.fillRect(x[i], y[i], tamaño, tamaño);
                 } else {
                     g.setColor(new Color(45, 180, 0));
-                    g.setColor(Color.MAGENTA);
+                    g.setColor(new Color(200, 0, 213,250));
                     g.fillRect(x[i], y[i], tamaño, tamaño);
                 }
             }
             g.setColor(Color.red);
-            g.setFont(new Font("Ink Free",Font.BOLD,40));
+            g.setFont(new Font("Thaoma", Font.BOLD,40));
             FontMetrics metrics = getFontMetrics(g.getFont());
             g.drawString("Puntaje: "+comerManz,(ancho - metrics.stringWidth("Puntaje: "+comerManz))/2,g.getFont().getSize());
         }else{
             juegoEnd(g);
+            botonRecargar.setVisible(true);
         }
     }
 
@@ -150,10 +159,9 @@ public class PanelJuego extends JPanel implements ActionListener {
     private void juegoEnd(Graphics g){
         //texto cuando perdes
         g.setColor(Color.red);
-        g.setFont(new Font("Ink Free",Font.BOLD,35));
+        g.setFont(new Font("Thaoma", Font.BOLD,35));
         FontMetrics metrics = getFontMetrics(g.getFont());
-        g.drawString("Perdiste! Tu puntaje es: "+comerManz,(ancho - metrics.stringWidth("Perdiste! Tu puntaje es: "+comerManz))/2,largo/2);
-
+        g.drawString("Perdiste! Tu puntaje es: "+comerManz,(ancho - metrics.stringWidth("Perdiste!\nTu puntaje es: "+comerManz))/2,largo/2);
     }
 
     @Override
@@ -194,6 +202,22 @@ public class PanelJuego extends JPanel implements ActionListener {
                     break;
             }
         }
+    }
+    private void setearBoton(){
+        botonRecargar.setBounds(ancho/2, largo/2, 100,40);
+        botonRecargar.setVisible(false);
+        botonRecargar.setFont(new Font("Thaoma", Font.BOLD,15));
+        botonRecargar.setMargin(new Insets(10,10,10,20));
+        botonRecargar.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                super.mousePressed(e);
+                botonRecargar.setVisible(false);
+                andar = true;
+                empezarJuego();
+            }
+        });
+
     }
 
 }
