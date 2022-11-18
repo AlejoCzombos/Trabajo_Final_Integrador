@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="Minijuego2_TaTeTi.Ventana">
+  <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="FlowLayout" hgap="0" vgap="0" flow-align="1">
+    <constraints>
+      <xy x="20" y="20" width="3218" height="682"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <grid id="b2a" binding="panelMenu" layout-manager="FlowLayout" hgap="0" vgap="0" flow-align="1">
+        <constraints/>
+        <properties>
+          <background color="-1"/>
+          <preferredSize width="600" height="600"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <grid id="13a5c" binding="panel2" layout-manager="FlowLayout" hgap="0" vgap="0" flow-align="1">
+            <constraints/>
+            <properties>
+              <alignmentX value="0.0"/>
+              <alignmentY value="0.0"/>
+              <preferredSize width="500" height="171"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="37946" class="javax.swing.JLabel">
+                <constraints/>
+                <properties>
+                  <alignmentY value="0.0"/>
+                  <icon value="Minijuego2_TaTeTi/Imagenes/x.png"/>
+                  <preferredSize width="500" height="171"/>
+                  <text value="Label"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <grid id="b58c" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+            <constraints/>
+            <properties>
+              <background color="-1"/>
+              <preferredSize width="600" height="210"/>
+            </properties>
+            <border type="none"/>
+            <children/>
+          </grid>
+          <grid id="73627" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+            <constraints/>
+            <properties>
+              <background color="-1"/>
+              <preferredSize width="600" height="220"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="9ed74" class="javax.swing.JLabel" binding="lModo">
+                <constraints/>
+                <properties>
+                  <font name="Tahoma" size="28" style="1"/>
+                  <text value="Modo de Juego"/>
+                </properties>
+              </component>
+              <grid id="5ab10" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+                <constraints/>
+                <properties>
+                  <background color="-1"/>
+                  <preferredSize width="600" height="40"/>
+                </properties>
+                <border type="none"/>
+                <children>
+                  <component id="8e1fe" class="javax.swing.JCheckBox" binding="vsPCCheckBox" default-binding="true">
+                    <constraints/>
+                    <properties>
+                      <background color="-1"/>
+                      <selected value="true"/>
+                      <text value="Vs PC"/>
+                    </properties>
+                  </component>
+                  <component id="5a975" class="javax.swing.JCheckBox" binding="a2JugadoresCheckBox" default-binding="true">
+                    <constraints/>
+                    <properties>
+                      <background color="-1"/>
+                      <text value="2 Jugadores"/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+              <grid id="54ea5" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+                <constraints/>
+                <properties>
+                  <background color="-1"/>
+                  <preferredSize width="600" height="40"/>
+                </properties>
+                <border type="none"/>
+                <children>
+                  <component id="d55db" class="javax.swing.JButton" binding="jugarButton" default-binding="true">
+                    <constraints/>
+                    <properties>
+                      <background color="-1"/>
+                      <text value="Jugar"/>
+                    </properties>
+                  </component>
+                  <component id="1786c" class="javax.swing.JButton" binding="volverMenu">
+                    <constraints/>
+                    <properties>
+                      <background color="-1"/>
+                      <text value="Volver al menú principal"/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+            </children>
+          </grid>
+        </children>
+      </grid>
+      <grid id="afbb2" binding="panelJuego" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+        <constraints/>
+        <properties>
+          <background color="-1"/>
+          <preferredSize width="600" height="600"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <grid id="24f07" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+            <constraints/>
+            <properties>
+              <background color="-16777216"/>
+              <preferredSize width="600" height="600"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="6d350" class="javax.swing.JLabel" binding="l1">
+                <constraints/>
+                <properties>
+                  <background color="-1"/>
+                  <font name="Tahoma" size="72" style="1"/>
+                  <horizontalAlignment value="0"/>
+                  <horizontalTextPosition value="0"/>
+                  <maximumSize width="200" height="200"/>
+                  <minimumSize width="200" height="200"/>
+                  <opaque value="true"/>
+                  <preferredSize width="180" height="180"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="6e8b1" class="javax.swing.JLabel" binding="l2">
+                <constraints/>
+                <properties>
+                  <background color="-1"/>
+                  <font name="Tahoma" size="72" style="1"/>
+                  <horizontalAlignment value="0"/>
+                  <horizontalTextPosition value="0"/>
+                  <maximumSize width="200" height="200"/>
+                  <minimumSize width="200" height="200"/>
+                  <opaque value="true"/>
+                  <preferredSize width="180" height="180"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="22f38" class="javax.swing.JLabel" binding="l3">
+                <constraints/>
+                <properties>
+                  <background color="-1"/>
+                  <font name="Tahoma" size="72" style="1"/>
+                  <horizontalAlignment value="0"/>
+                  <horizontalTextPosition value="0"/>
+                  <maximumSize width="200" height="200"/>
+                  <minimumSize width="200" height="200"/>
+                  <opaque value="true"/>
+                  <preferredSize width="180" height="180"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="3adaf" class="javax.swing.JLabel" binding="l4">
+                <constraints/>
+                <properties>
+                  <background color="-1"/>
+                  <font name="Tahoma" size="72" style="1"/>
+                  <horizontalAlignment value="0"/>
+                  <horizontalTextPosition value="0"/>
+                  <maximumSize width="200" height="200"/>
+                  <minimumSize width="200" height="200"/>
+                  <opaque value="true"/>
+                  <preferredSize width="180" height="180"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="b4f1a" class="javax.swing.JLabel" binding="l5">
+                <constraints/>
+                <properties>
+                  <background color="-1"/>
+                  <font name="Tahoma" size="72" style="1"/>
+                  <horizontalAlignment value="0"/>
+                  <horizontalTextPosition value="0"/>
+                  <maximumSize width="200" height="200"/>
+                  <minimumSize width="200" height="200"/>
+                  <opaque value="true"/>
+                  <preferredSize width="180" height="180"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="7424e" class="javax.swing.JLabel" binding="l6">
+                <constraints/>
+                <properties>
+                  <background color="-1"/>
+                  <font name="Tahoma" size="72" style="1"/>
+                  <horizontalAlignment value="0"/>
+                  <horizontalTextPosition value="0"/>
+                  <maximumSize width="200" height="200"/>
+                  <minimumSize width="200" height="200"/>
+                  <opaque value="true"/>
+                  <preferredSize width="180" height="180"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="4939f" class="javax.swing.JLabel" binding="l7">
+                <constraints/>
+                <properties>
+                  <background color="-1"/>
+                  <font name="Tahoma" size="72" style="1"/>
+                  <horizontalAlignment value="0"/>
+                  <horizontalTextPosition value="0"/>
+                  <maximumSize width="200" height="200"/>
+                  <minimumSize width="200" height="200"/>
+                  <opaque value="true"/>
+                  <preferredSize width="180" height="180"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="37f2" class="javax.swing.JLabel" binding="l8">
+                <constraints/>
+                <properties>
+                  <background color="-1"/>
+                  <font name="Tahoma" size="72" style="1"/>
+                  <horizontalAlignment value="0"/>
+                  <horizontalTextPosition value="0"/>
+                  <maximumSize width="200" height="200"/>
+                  <minimumSize width="200" height="200"/>
+                  <opaque value="true"/>
+                  <preferredSize width="180" height="180"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="85ed4" class="javax.swing.JLabel" binding="l9">
+                <constraints/>
+                <properties>
+                  <background color="-1"/>
+                  <font name="Tahoma" size="72" style="1"/>
+                  <horizontalAlignment value="0"/>
+                  <horizontalTextPosition value="0"/>
+                  <maximumSize width="200" height="200"/>
+                  <minimumSize width="200" height="200"/>
+                  <opaque value="true"/>
+                  <preferredSize width="180" height="180"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <grid id="a9cf4" layout-manager="FlowLayout" hgap="5" vgap="0" flow-align="1">
+                <constraints/>
+                <properties>
+                  <background color="-16777216"/>
+                  <preferredSize width="600" height="30"/>
+                </properties>
+                <border type="none"/>
+                <children>
+                  <component id="99e06" class="javax.swing.JButton" binding="reiniciar">
+                    <constraints/>
+                    <properties>
+                      <alignmentY value="0.0"/>
+                      <horizontalTextPosition value="0"/>
+                      <text value="Reiniciar"/>
+                      <verticalAlignment value="0"/>
+                      <verticalTextPosition value="1"/>
+                    </properties>
+                  </component>
+                  <component id="731da" class="javax.swing.JButton" binding="volverButton" default-binding="true">
+                    <constraints/>
+                    <properties>
+                      <text value="Volver"/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+            </children>
+          </grid>
+        </children>
+      </grid>
+    </children>
+  </grid>
+</form>
