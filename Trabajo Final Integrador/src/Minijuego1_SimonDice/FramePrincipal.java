@@ -1,5 +1,7 @@
 package Minijuego1_SimonDice;
 
+import menu.MenuInicio;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.event.ChangeEvent;
@@ -21,20 +23,13 @@ public class FramePrincipal extends JFrame implements ChangeListener, MouseListe
 
     //Botones y labels
     private JButton botonJugar = new JButton("Jugar");
-    private JButton botonMenu = new JButton("Salir");
+    private JButton botonMenu = new JButton("Menú Principal");
     public JButton botonAtras = new JButton("Atras");
     private JRadioButton radioButtonLento = new JRadioButton("Lento");
     private JRadioButton radioButtonMedio = new JRadioButton("Medio");
     private JRadioButton radioButtonRapido = new JRadioButton("Rapido");
     private ButtonGroup grupoBotones = new ButtonGroup();
     private JLabel labelSimonDice = new JLabel("Simon Dice!", JLabel.CENTER);
-
-    //------------------------Prueba-----------------------
-    public static void main(String[] args){
-        new FramePrincipal();
-    }
-    //------------------------Prueba-----------------------
-
     public FramePrincipal(){
         //Se definen los parametros iniciales de la ventana
         setSize(600,650);
@@ -93,7 +88,8 @@ public class FramePrincipal extends JFrame implements ChangeListener, MouseListe
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                System.exit(0);
+                setVisible(false);
+                JFrame frame = new MenuInicio();
             }
         });
 

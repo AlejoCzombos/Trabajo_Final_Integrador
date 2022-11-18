@@ -1,5 +1,8 @@
 package Minijuego3_Viborita;
 
+import Minijuego1_SimonDice.Panel_Grid;
+import menu.MenuInicio;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -23,6 +26,7 @@ public class PanelJuego extends JPanel implements ActionListener {
     private boolean andar = false;
     private Timer timer;
     private Random random;
+    private Panel_Grid panelBotones = new Panel_Grid(1,2,20,20);
     private JButton botonRecargar = new JButton("Volver a Jugar");
 
     PanelJuego(){
@@ -34,7 +38,8 @@ public class PanelJuego extends JPanel implements ActionListener {
         this.setFocusable(true);
         this.addKeyListener(new MyKeyAdapter());
         setearBoton();
-        add(botonRecargar, BorderLayout.SOUTH);
+        panelBotones.setBackground(Color.DARK_GRAY);
+        add(panelBotones, BorderLayout.SOUTH);
         empezarJuego();
 
     }
@@ -74,7 +79,6 @@ public class PanelJuego extends JPanel implements ActionListener {
                     g.setColor(new Color(238, 0, 255,250));
                     g.fillRect(x[i], y[i], tamaño, tamaño);
                 } else {
-                    g.setColor(new Color(45, 180, 0));
                     g.setColor(new Color(200, 0, 213,250));
                     g.fillRect(x[i], y[i], tamaño, tamaño);
                 }
@@ -85,7 +89,7 @@ public class PanelJuego extends JPanel implements ActionListener {
             g.drawString("Puntaje: "+comerManz,(ancho - metrics.stringWidth("Puntaje: "+comerManz))/2,g.getFont().getSize());
         }else{
             juegoEnd(g);
-            botonRecargar.setVisible(true);
+            panelBotones.setVisible(true);
         }
     }
 
@@ -204,20 +208,23 @@ public class PanelJuego extends JPanel implements ActionListener {
         }
     }
     private void setearBoton(){
-        botonRecargar.setBounds(ancho/2, largo/2, 100,40);
-        botonRecargar.setVisible(false);
+        panelBotones.add(botonRecargar);
+        panelBotones.setVisible(false);
         botonRecargar.setFont(new Font("Thaoma", Font.BOLD,15));
-        botonRecargar.setMargin(new Insets(10,10,10,20));
+        //botonRecargar.setMargin(new Insets(10,10,10,20));
         botonRecargar.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
                 super.mousePressed(e);
-                botonRecargar.setVisible(false);
+                panelBotones.setVisible(false);
                 andar = true;
                 empezarJuego();
             }
         });
 
+    }
+    public void agregarBoton(JButton boton){
+        panelBotones.add(boton);
     }
 
 }
