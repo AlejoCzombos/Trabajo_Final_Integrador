@@ -1,5 +1,7 @@
 package Minijuego2_TaTeTi;
 
+import menu.MenuInicio;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -19,6 +21,7 @@ public class Ventana extends JFrame {
     private JButton reiniciar;
     private JLabel l1, l2, l3, l4, l5, l6, l7, l8, l9;
     private JButton volverButton;
+    private JButton volverMenu;
     private boolean IA = false;
 
     private String turno = "X";
@@ -227,6 +230,14 @@ public class Ventana extends JFrame {
             }
         });
 
+        volverMenu.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                setVisible(false);
+                JFrame frame = new MenuInicio();
+            }
+        });
     }
 
     public void reiniciarJuego(){

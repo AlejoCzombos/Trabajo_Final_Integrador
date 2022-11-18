@@ -10,23 +10,29 @@ import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class SimonDice extends JPanel implements ActionListener, MouseListener {
-    private ArrayList<Integer> secuencia;
-    private Panel_Grid panelPuntuacion = new Panel_Grid(2,1,0,20);
-    private Panel_Grid panelBotonesInferiores = new Panel_Grid(2,1,70,50);
+public class PanelSimonDice extends JPanel implements ActionListener, MouseListener {
+    //Paneles Grid
+    private static final Panel_Grid panelPuntuacion = new Panel_Grid(2,1,0,20);
+    private static final Panel_Grid panelBotonesInferiores = new Panel_Grid(2,1,70,50);
+
+    //Botones y labels
     public JButton botonSalir = new JButton("Salir");
-    public JButton botonAyuda = new JButton("Ayuda");
     public Label puntuacion = new Label("Puntos: 0");
     public Label mejorPuntuacion = new Label("Mejor puntuacion: 0");
+
+    //Timer, lista de secuencia y demas variables
     private Timer timer;
+    private ArrayList<Integer> secuencia;
     private int eleccionColor, indiceSecuenciaActual;
     private int contadorTicks, tiempoIluminacion;
     private int puntajeActual, mejorPuntaje = 0;
+    public int Delay = 20;
     private boolean creandoPatron = true, gameOver = false;
 
-    public SimonDice(){
+    public PanelSimonDice(){
+        //Seteo el tamaño del panel e inicializo el timer
         this.setPreferredSize( new Dimension(600,600));
-        timer = new Timer(20,this);
+        timer = new Timer(Delay,this);
 
         //Seteo el layout
         setLayout(new BorderLayout(10,10));
@@ -35,7 +41,6 @@ public class SimonDice extends JPanel implements ActionListener, MouseListener {
         panelPuntuacion.add(puntuacion);
         panelPuntuacion.add(mejorPuntuacion);
         panelBotonesInferiores.add(botonSalir);
-        panelBotonesInferiores.add(botonAyuda);
         panelBotonesInferiores.setBorder(new EmptyBorder(20,50,10,50));
 
         //Agrego el mouse listener al panel y a los botones
@@ -48,7 +53,6 @@ public class SimonDice extends JPanel implements ActionListener, MouseListener {
         //Uso los metodos de clase para setear botones y textos
         setearLabels(puntuacion);
         setearLabels(mejorPuntuacion);
-        setearBotones(botonAyuda);
         setearBotones(botonSalir);
 
         iniciarJuego();
@@ -58,13 +62,14 @@ public class SimonDice extends JPanel implements ActionListener, MouseListener {
         //inicializo la lista de secuencia y las variables
         secuencia = new ArrayList<>();
         indiceSecuenciaActual = 0;
-        tiempoIluminacion = 3;
+        tiempoIluminacion = 5;
         eleccionColor = 0;
         contadorTicks = 0;
         timer.start();
     }
 
     public void paintComponent(Graphics g){
+        //Repinta el panel cada cierto tiempo
         super.paintComponent(g);
         dibujar(g);
     }
@@ -197,15 +202,18 @@ public class SimonDice extends JPanel implements ActionListener, MouseListener {
     @Override
     public void mouseExited(MouseEvent e) {
     }
+    public void agregarBoton(JButton boton){
+        //agrega un boton al panel inferior
+        panelBotonesInferiores.add(boton);
+    }
 
-    private void setearBotones(JButton boton){
+    public void setearBotones(JButton boton){
+        //agrega listener a boton salir para que termine la ejecucion
         boton.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if(boton == botonAyuda){
-
-                }else if(boton == botonSalir){
-
+                if(boton == botonSalir){
+                    System.exit(0);
                 }
             }
             @Override
@@ -218,13 +226,18 @@ public class SimonDice extends JPanel implements ActionListener, MouseListener {
             public void mouseExited(MouseEvent e) {}
         });
     }
-
     private static void setearLabels(Label label){
+        //alinea y establece la fuente y tamaño de las Labels
         label.setAlignment(1);
         label.setFont(new Font("Thaoma", Font.BOLD,15));
     }
     public static int colorAleatorio(){
+        //Genera un numero aleatorio entre 1 y 4
         Random random = new Random();
         return random.nextInt(4)+1;
+    }
+    public void setDelay(int delay) {
+        //setea el timer
+        timer.setDelay(delay);
     }
 }
